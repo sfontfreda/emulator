@@ -10,11 +10,11 @@ class HomeScreen:
     self.font = pygame.font.Font(None, 24)
     
     total = len(self.roms)
-    self.top_count = math.ceil(total / 2)
-    self.bottom_count = math.floor(total / 2)
+    self.top_count = math.ceil(total / 2) if total > 0 else 0
+    self.bottom_count = math.floor(total / 2) if total > 0 else 0
     
     self.margin = 20
-    biggest_row = self.top_count
+    biggest_row = self.top_count if self.top_count > 0 else 1
     max_width = (config.WIDTH - (biggest_row + 1) * self.margin) // biggest_row
     max_height = (config.HEIGHT - self.margin * 3) // 2
 
